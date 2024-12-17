@@ -4,28 +4,29 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Scanner;
 import java.util.Set;
+import java.util.Scanner;
 
 public class GuardPatrolWithObstruction {
 	public static void main(String[] args) throws IOException {
-		// Step 1: Ask the user for the file path
+		// Step 1: Ask the user for the file name (e.g., Day6.txt)
 		Scanner scanner = new Scanner(System.in);
-		System.out.print("Please enter the file path: ");
-		String filePath = scanner.nextLine();  // Read file path from user
+		System.out.print("Enter the grid file name (e.g., Day6.txt): ");
+		String filePath = scanner.nextLine();  // Get file path input from user
 
-		BufferedReader br = new BufferedReader(new FileReader(filePath));  // Open file
+		// Step 2: Read the grid data from the file specified by the user
+		BufferedReader br = new BufferedReader(new FileReader(filePath));  // Open the grid file
 		String s;
 		List<List<Character>> grid = new ArrayList<>();
 		int startRow = -1;
 		int startCol = -1;
 		int row = 0;
 
-		// Step 2: Read the file and populate the grid
+		// Step 3: Populate the grid
 		while ((s = br.readLine()) != null) {
 			List<Character> line = new ArrayList<>();
 			char[] charArray = s.toCharArray();
-			for (int i = 0, charArrayLength = charArray.length; i < charArrayLength; i++) {
+			for (int i = 0; i < charArray.length; i++) {
 				char c = charArray[i];
 				line.add(c);
 				if (c == '^') {
@@ -37,10 +38,10 @@ public class GuardPatrolWithObstruction {
 			row++;
 		}
 
-		// Step 3: Simulate the guard's walk
+		// Step 4: Simulate the guard's walk
 		simulateGuardWalk(grid, startRow, startCol);
 
-		// Step 4: Print grid and count positions marked with 'X'
+		// Step 5: Print grid and count positions marked with 'X'
 		int p1 = 0;
 		List<Pos> potentialSites = new ArrayList<>();
 		for (int i = 0; i < grid.size(); i++) {
@@ -58,7 +59,7 @@ public class GuardPatrolWithObstruction {
 
 		System.out.println("\n" + p1);
 
-		// Step 5: Try adding an obstruction and check for loop
+		// Step 6: Try adding an obstruction and check for loop
 		int p2 = 0;
 		for (Pos pot : potentialSites) {
 			resetGrid(grid);
