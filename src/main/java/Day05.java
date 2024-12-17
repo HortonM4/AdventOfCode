@@ -89,9 +89,7 @@ public class Day05 {
 
 	public static void main(String[] args) throws Exception {
 		Scanner scanner = new Scanner(System.in);
-
-		// Prompt user to enter the file path for input
-		System.out.print("Please enter the path to the input file: ");
+		System.out.print("Enter the grid file name (e.g., Day6.txt): ");
 		String filePath = scanner.nextLine();
 
 		// Read the entire content of the file as a string
