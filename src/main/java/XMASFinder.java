@@ -10,7 +10,7 @@ public class XMASFinder {
 
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
-		System.out.print("Enter the file path containing the word search grid: ");
+		System.out.print("Enter the grid file name (e.g., Day6.txt): ");
 		String filePath = scanner.nextLine();
 
 		try {

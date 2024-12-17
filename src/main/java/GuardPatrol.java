@@ -4,9 +4,9 @@ import java.util.*;
 public class GuardPatrol {
 	public static void main(String[] args) {
 		// Step 1: Get the input file from the user
-		Scanner inputScanner = new Scanner(System.in);
-		System.out.print("Enter the file path: ");
-		String filePath = inputScanner.nextLine();
+		Scanner scanner = new Scanner(System.in);
+		System.out.print("Enter the grid file name (e.g., Day6.txt): ");
+		String filePath = scanner.nextLine();
 
 		// Step 2: Read the map from the file
 		char[][] map = readMap(filePath);
